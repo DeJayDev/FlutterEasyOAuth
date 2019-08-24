@@ -1,7 +1,6 @@
 import 'package:easy_oauth/model/config.dart';
 
 class TokenRequestDetails {
-
   String url;
   Map<String, String> params;
   Map<String, String> headers;
@@ -23,5 +22,4 @@ class TokenRequestDetails {
       this.headers.addAll(headers);
     }
   }
-
 }
