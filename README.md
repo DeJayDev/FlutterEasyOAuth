@@ -83,7 +83,7 @@ Add the following you your pubspec.yaml dependancies:
 
 ```yaml
 dependencies:
-  flutter_oauth2: "^1.0.0"
+  easy_oauth: "^1.0.0"
 ```
 
 ## Thanks to
