@@ -72,8 +72,8 @@
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner/Base.lproj/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/Runner/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/ios/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/lib/example/packages" />
-      <excludeFolder url="file://$MODULE_DIR$/example/lib/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/example/packages" />
+      <excludeFolder url="file://$MODULE_DIR$/example/packages" />
       <excludeFolder url="file://$MODULE_DIR$/example/packages" />
       <excludeFolder url="file://$MODULE_DIR$/packages" />
       <excludeFolder url="file://$MODULE_DIR$/test/packages" />

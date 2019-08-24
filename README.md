@@ -1,63 +1,76 @@
-This library has been forked from [HithereJoe](https://github.com/hitherejoe/FlutterOAuth). As the library was unfortunately deprecated, we updated it to Dart 2. The following ReadMe is from the original contributors. 
+[![Words](https://img.shields.io/static/v1?style=flat-square&label=Fork+of&message=codeing-io/FlutterOAuth&color=informational&logo=Git)](https://github.com/codeing-io/FlutterOAuth/)
 
 # Flutter OAuth
 
-A Flutter OAuth package for performing user authentication for your apps.
+Another Flutter OAuth package for simplifying OAuth operations
 
-I've tested this with a small collection of APIs (Buffer, Strava, Unsplash and GitHub). If there
-is an issue with an API you are trying to work with, please file an issue :)
+Originally tested with small collection of services such as:
+* [Strava](https://strava.com/)
+* [Unsplash](https://unsplash.com)
+* [GitHub](https://github.com/DeJayDev/FlutterOAuth)
+
+If there is an issue with a specific service you are trying to work with, feel free to file an issue. :)
 
 ## Authorizing an application
 
-Performing authorization for an API is straight forward using this library. In most cases you
-will just be able to use the following approach:
+Performing authorization for an API is pretty easy, in most cases you just need to do the following:
 
 ```dart
-final OAuth flutterOAuth = new FlutterOAuth(new Config(
-    "https://unsplash.com/oauth/authorize",
-    "https://unsplash.com/oauth/token",
-    "YOUR_CLIENT_ID",
-    "YOUR_CLIENT_SECRET",
-    "http://localhost:8080",
-    "code"));
+final OAuth flutterOAuth = new FlutterOAuth(
+    new Config(
+        "https://unsplash.com/oauth/authorize",
+        "https://unsplash.com/oauth/token",
+        "YOUR_CLIENT_ID",
+        "YOUR_CLIENT_SECRET",
+        "http://localhost:8080",
+        "code"
+    )
+);
 ```
 
-This allows you to pass in an Authorization URL, Token request URL, Client ID, Client Secret,
-Redirect URL and the response type. This should satisfy most requests, but if not then you can pass
+This allows you to pass in an Authorization URL, Token Request URL, Your Applications Client ID, Your Applications Client Secret, Redirect URL and the response type. 
+
+This should satisfy most requests, but if not then you can pass
 in other optional parameters for:
 
-- __contentType__ - This allows you to change the content type for the request. For example, for Spotify
-API authorization you need to use "application/x-www-form-urlencoded"
+- `contentType` - This allows you to change the content type for the request. For example, when using the Spotify API you need to set the contentType to `application/x-www-form-urlencoded`
 
 ```dart
-final OAuth flutterOAuth = new FlutterOAuth(new Config(
-    ...,
-    contentType: "application/x-www-form-urlencoded"));
+final OAuth flutterOAuth = new FlutterOAuth(
+    new Config(
+        ...,
+        contentType: "application/x-www-form-urlencoded"
+    )
+);
 ```
 
-- __parameters__ - Add your own parameters that this library may not support out-of-the-box. For example,
-with the GitHub API you can send a state string and scopes to gain authorization for
+- `parameters` - Add your own parameters that this library may not support (yet!). For example, when using the GitHub API you may send a state string and scopes to request authorization for.
 
 ```dart
 Map<String, String> customParameters = {"state": "SOME_RANDOM_SECURE_STRING", "scope": "public_repo"};
 
-final OAuth flutterOAuth = new FlutterOAuth(new Config(
-    ...,
-    parameters: customParameters));
+final OAuth flutterOAuth = new FlutterOAuth(
+    new Config(
+        ...,
+        parameters: customParameters
+    )
+);
 ```
 
-- __headers__ - Some APIs require you to send custom headers, such as an Authorization Header. Use this
-parameter if you require this
+- `headers` - Some services may require you to send a custom header, such as `Authorization`.
 
 ```dart
 Map<String, String> headers = {"Authorization": "Basic SOME_BASE_64_STRING"};
 
-final OAuth flutterOAuth = new FlutterOAuth(new Config(
-    ...,
-    headers: headers));
+final OAuth flutterOAuth = new FlutterOAuth)
+    new Config(
+        ...,
+        headers: headers
+    )
+);
 ```
 
-Then once you have an OAuth instance, you can simply call the `performAuthorization()` method like so to retrieve a Token instance:
+Then once you have an OAuth instance, you may simply call the `performAuthorization()` method like so to retrieve a Token:
 
 ```dart
 Token token = await flutterOAuth.performAuthorization();
@@ -70,15 +83,11 @@ Add the following you your pubspec.yaml dependancies:
 
 ```yaml
 dependencies:
-  flutter_generic_oauth: "^1.0.0"
+  flutter_oauth2: "^1.0.0"
 ```
 
 ## Thanks to
 
-[Kevin Seqaud](https://medium.com/@segaud.kevin/facebook-oauth-login-flow-with-flutter-9adb717c9f2e) for his awesome blog post on Flutter OAuth https://medium.com/@segaud.kevin/facebook-oauth-login-flow-with-flutter-9adb717c9f2e
+Kevin Seqaud for his [awesome blog post on Flutter OAuth](https://medium.com/@segaud.kevin/facebook-oauth-login-flow-with-flutter-9adb717c9f2e)
 
-The author, [Hadrien Lejard](https://twitter.com/hadrienlejard), behind the:
-
-The [Gitter-Dart repo](https://github.com/dart-flitter/gitter_dart), where a lot of this library was influenced
-
-and the [Flutter Webview plugin](https://github.com/dart-flitter/flutter_webview_plugin), which this library uses
+The [Flutter Webview plugin](https://github.com/dart-flitter/flutter_webview_plugin), which carrys this library on it's back.
