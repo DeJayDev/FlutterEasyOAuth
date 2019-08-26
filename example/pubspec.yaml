@@ -1,0 +1,12 @@
+
+name: easy_oauth_example
+description: Demonstrates how to use the easy_oauth plugin.
+
+dependencies:
+  flutter:
+    sdk: flutter
+  easy_oauth:
+    path: ../
+
+flutter:
+  uses-material-design: true

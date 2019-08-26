@@ -40,14 +40,14 @@ abstract class OAuth {
   }
 
   void generateTokenRequest() {
-    tokenRequest = new TokenRequestDetails(configuration, code);
+    tokenRequest = TokenRequestDetails(configuration, code);
   }
 
   Future<Token> performAuthorization() async {
     String resultCode = await requestCode();
     if (resultCode != null) {
       generateTokenRequest();
-      return new Token.fromJson(await getToken());
+      return Token.fromJson(await getToken());
     }
     return null;
   }

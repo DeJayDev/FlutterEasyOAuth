@@ -7,9 +7,9 @@ import 'package:easy_oauth/oauth.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class FlutterOAuth extends OAuth {
-  final StreamController<String> onCodeListener = new StreamController();
+  final StreamController<String> onCodeListener = StreamController();
 
-  final FlutterWebviewPlugin webView = new FlutterWebviewPlugin();
+  final FlutterWebviewPlugin webView = FlutterWebviewPlugin();
 
   var isBrowserOpen = false;
   var server;
@@ -19,7 +19,7 @@ class FlutterOAuth extends OAuth {
       onCodeStream ??= onCodeListener.stream.asBroadcastStream();
 
   FlutterOAuth(Config configuration)
-      : super(configuration, new AuthorizationRequest(configuration));
+      : super(configuration, AuthorizationRequest(configuration));
 
   Future<String> requestCode() async {
     if (shouldRequestCode() && !isBrowserOpen) {

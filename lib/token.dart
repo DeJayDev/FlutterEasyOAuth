@@ -12,7 +12,7 @@ class Token {
   String toString() => Token.toJsonMap(this).toString();
 
   static Map toJsonMap(Token model) {
-    Map ret = new Map();
+    Map ret = Map();
     if (model != null) {
       if (model.accessToken != null) {
         ret["access_token"] = model.accessToken;
@@ -26,7 +26,7 @@ class Token {
 
   static Token fromMap(Map map) {
     if (map == null) return null;
-    Token model = new Token();
+    Token model = Token();
     model.accessToken = map["access_token"];
     model.tokenType = map["token_type"];
     return model;

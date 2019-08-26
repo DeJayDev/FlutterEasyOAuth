@@ -2,7 +2,7 @@ name: easy_oauth
 description: Another Flutter OAuth package for simplifying OAuth operations
 version: 1.0.0
 authors: 
-  - Hitherejoe
+  - Joe Birch <hitherejoebirch@googlemail.com>
   - Kevin A. Riedl <k.riedl@codeing.io>
   - DeJay <contact@dejaydev.com>
 homepage: https://dejay.dev

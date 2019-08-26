@@ -16,8 +16,8 @@ If there is an issue with a specific service you are trying to work with, feel f
 Performing authorization for an API is pretty easy, in most cases you just need to do the following:
 
 ```dart
-final OAuth flutterOAuth = new FlutterOAuth(
-    new Config(
+final OAuth flutterOAuth = FlutterOAuth(
+    Config(
         "https://unsplash.com/oauth/authorize",
         "https://unsplash.com/oauth/token",
         "YOUR_CLIENT_ID",
@@ -36,8 +36,8 @@ in other optional parameters for:
 - `contentType` - This allows you to change the content type for the request. For example, when using the Spotify API you need to set the contentType to `application/x-www-form-urlencoded`
 
 ```dart
-final OAuth flutterOAuth = new FlutterOAuth(
-    new Config(
+final OAuth flutterOAuth = FlutterOAuth(
+    Config(
         ...,
         contentType: "application/x-www-form-urlencoded"
     )
@@ -49,8 +49,8 @@ final OAuth flutterOAuth = new FlutterOAuth(
 ```dart
 Map<String, String> customParameters = {"state": "SOME_RANDOM_SECURE_STRING", "scope": "public_repo"};
 
-final OAuth flutterOAuth = new FlutterOAuth(
-    new Config(
+final OAuth flutterOAuth = FlutterOAuth(
+    Config(
         ...,
         parameters: customParameters
     )
@@ -62,8 +62,8 @@ final OAuth flutterOAuth = new FlutterOAuth(
 ```dart
 Map<String, String> headers = {"Authorization": "Basic SOME_BASE_64_STRING"};
 
-final OAuth flutterOAuth = new FlutterOAuth)
-    new Config(
+final OAuth flutterOAuth = FlutterOAuth(
+    Config(
         ...,
         headers: headers
     )
